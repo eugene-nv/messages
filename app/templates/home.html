@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Home page</h1>
+
+    {% if user.is_authenticated %}
+
+    {% if m.errors %}
+        <p>{{ m.errors.error }}</p>
+    {% endif %}
+
+    <form action="{% url 'home' %}" method="post">
+        Grom {{ m }}<br>
+        {% csrf_token %}
+        <button type="submit">Submit</button>
+    </form>
+
+    <ul>
+        {% for m in mess %}
+            <li>{{ m.text }}</li>
+            <li>{{ m.author }}</li>
+        {% if user ==  m.author%}
+                <form action="{% url 'message_update' m.id %}">
+                    {% csrf_token %}
+                <input type="submit" value="Изменить">
+                </form>
+                <form action="{% url 'message_delete' m.id %}" method="post">
+                    {% csrf_token %}
+                <input type="submit" value="Удалить">
+                </form>
+        {% endif %}
+        {% endfor %}
+    </ul>
+    {% else %}
+            {% for m in mess %}
+                <li>{{ m.text }}</li>
+                <li>{{ m.author }}</li>
+            {% endfor %}
+    {% endif %}
+{% endblock content %}
