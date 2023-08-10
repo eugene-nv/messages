@@ -25,7 +25,11 @@ SECRET_KEY = 'django-insecure-rtrr*93z-fcmr0q^gi!bg-n@tdurvxccpn(-oel*&ew!q-w6nd
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
+
+CORS_ORIGIN_ALLOW_ALL = True
+
+CSRF_TRUSTED_ORIGINS = ['http://*', 'https://*']
 
 AUTH_USER_MODEL = 'users.User'
 LOGIN_REDIRECT_URL = '/'
@@ -44,6 +48,7 @@ INSTALLED_APPS = [
     'rest_framework',
     "crispy_forms",
     "crispy_tailwind",
+    "corsheaders",
 
     'users',
     'message',
@@ -52,6 +57,8 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    "corsheaders.middleware.CorsMiddleware",
+    "django.middleware.common.CommonMiddleware",
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
