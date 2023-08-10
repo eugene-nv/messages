@@ -42,6 +42,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'rest_framework',
+    "crispy_forms",
+    "crispy_tailwind",
 
     'users',
     'message',
@@ -59,6 +61,10 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'app.urls'
+
+CRISPY_ALLOWED_TEMPLATE_PACKS = "tailwind"
+
+CRISPY_TEMPLATE_PACK = "tailwind"
 
 TEMPLATES = [
     {

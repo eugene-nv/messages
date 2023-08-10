@@ -1,19 +1,26 @@
 {% extends 'base.html' %}
+{% load tailwind_filters %}
 
 {% block content %}
-{% if form.errors %}
-    <div>
-        <ul>
-        {% for error in form.errors %}
-            <li><strong>{{ error|escape }}</strong></li>
-        {% endfor %}
-        </ul>
-    </div>
-{% endif %}
 
-<form action="{% url 'message_update' id=message_id %}" method="post">
-    {% csrf_token %}
-    {{ form }}
-    <input type="submit" value="Сохранить">
-</form>
+        {% if m.errors %}
+
+            {% for error in form.errors %}
+                <p> {{ error|escape }} </p>
+            {% endfor %}
+
+        {% endif %}
+        <div class="container mx-auto">
+        <div class="block w-full appearance-none border border-gray-200 bg-gray-50 px-3 py-2 my-4 rounded">
+        <form action="{% url 'message_update' id=message_id %}" method="post">
+            {% csrf_token %}
+            {{ form|crispy }}<br>
+            <button class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"
+                                type="submit">
+                            Edit
+            </button>
+        </form>
+        </div>
+            </div>
+
 {% endblock content %}

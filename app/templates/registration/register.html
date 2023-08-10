@@ -1,15 +1,23 @@
 {% extends 'base.html' %}
+{% load tailwind_filters %}
 
 {% block content %}
-    <h1>Register</h1>
+        <h1 class="font-bold">Get started</h1>
+        <h1 class="py-8">Already registered?
+        <a class="font-medium text-blue-600 hover:underline" href="{% url 'login' %}">
+            Sign in
+        </a> to your account.
+    </h1>
 
+<div class="block w-full appearance-none rounded-md border border-gray-200 bg-gray-50 px-3 py-2 text-gray-900 placeholder-gray-400 focus:border-blue-500 focus:bg-white focus:outline-none focus:ring-blue-500 sm:text-sm">
     {% if form.errors %}
         <p>{{ form.errors.error }}</p>
     {% endif %}
 
     <form action="{% url 'register' %}" method="post">
-        {{ form }}
+        {{ form|crispy }}
         {% csrf_token %}
-        <button type="submit">Submit</button>
+        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full" type="submit">Submit</button>
     </form>
+</div>
 {% endblock content %}

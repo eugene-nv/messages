@@ -1,15 +1,22 @@
 {% extends 'base.html' %}
+{% load tailwind_filters %}
 
 {% block content %}
-    <h1>Login</h1>
+    <h1 class="py-8">Sign in to your account Don’t have an account?
+        <a class="font-medium text-blue-600 hover:underline" href="{% url 'register' %}">
+            Sign up
+        </a>
+    </h1>
 
+<div class="p-4">
     {% if form.errors %}
-        <p>{{ form.errors.error }}</p>
+        <p>{{ form.errors.error|crispy }}</p>
     {% endif %}
 
-    <form action="{% url 'login' %}" method="post">
-        {{ form }}
+    <form class="block w-full appearance-none rounded-md border border-gray-200 bg-gray-50 px-3 py-2 text-gray-900 placeholder-gray-400 focus:border-blue-500 focus:bg-white focus:outline-none focus:ring-blue-500 sm:text-sm" action="{% url 'login' %}" method="post">
+        {{ form|crispy }}
         {% csrf_token %}
-        <button type="submit">login</button>
+        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full" type="submit">Sign in</button>
     </form>
+</div>
 {% endblock content %}
