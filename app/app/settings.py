@@ -49,7 +49,7 @@ CORS_ALLOW_HEADERS = (
     "x-requested-with",
 )
 
-CSRF_TRUSTED_ORIGINS = ['http://*', 'https://*']
+CSRF_TRUSTED_ORIGINS = ['http://*', 'https://*', 'https://dev-dnd.retailiqa.ru/', 'http://127.0.0.1:8000']
 
 AUTH_USER_MODEL = 'users.User'
 LOGIN_REDIRECT_URL = '/'
