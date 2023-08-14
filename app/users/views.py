@@ -1,5 +1,7 @@
 from django.contrib.auth import authenticate, login
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
+from django.utils.decorators import method_decorator
 from django.views import View
 
 from .forms import UserCreationForm
@@ -14,6 +16,7 @@ class Register(View):
         }
         return render(request, self.template_name, context)
 
+    @method_decorator(login_required)
     def post(self, request):
         form = UserCreationForm(request.POST)
 
