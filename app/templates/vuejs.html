@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load tailwind_filters %}
+
+{% block content %}
+Test
+    {% csrf_token %}
+    {% verbatim %}
+        <div id="create_app">
+            <input v-model="message.text" class="border mx-4">
+            <button v-on:click="addForm()" type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Add</button>
+        </div>
+
+        <div class="container" id="list_app" >
+            <div v-for="m in messages">
+                {{ m.text }}
+                <p class="bg-red-50">{{ m.author }}</p>
+            </div>
+        </div>
+
+    {% endverbatim %}
+
+<script src="/static/list.js"></script>
+<script src="/static/create.js"></script>
+
+
+{% endblock content %}

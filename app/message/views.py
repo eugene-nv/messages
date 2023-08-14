@@ -61,3 +61,7 @@ class MessageUpdateView(View):
             return redirect('home')
 
         return render(request, 'update.html', {'form': form, 'message_id': message_id})
+
+
+def vuejs_page(request):
+    return render(request, 'vuejs.html')
