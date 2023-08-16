@@ -27,6 +27,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*', 'https://dev-dnd.retailiqa.ru']
 
+CSRF_COOKIE_DOMAIN = '.retailiqa.ru'
+
 CORS_ALLOWED_ORIGINS = ['http://*', 'https://*', 'https://dev-dnd.retailiqa.ru']
 
 CORS_ALLOW_ALL_ORIGINS = True
