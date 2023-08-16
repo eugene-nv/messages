@@ -25,11 +25,13 @@ SECRET_KEY = 'django-insecure-rtrr*93z-fcmr0q^gi!bg-n@tdurvxccpn(-oel*&ew!q-w6nd
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['*', 'https://dev-dnd.retailiqa.ru']
 
 CORS_ALLOWED_ORIGINS = ['http://*', 'https://*', 'https://dev-dnd.retailiqa.ru']
 
 CORS_ALLOW_ALL_ORIGINS = True
+
+CORS_ORIGIN_WHITELIST = ['http://*', 'https://*']
 
 CORS_ALLOW_METHODS = (
     "DELETE",

@@ -16,7 +16,6 @@ class Register(View):
         }
         return render(request, self.template_name, context)
 
-    @method_decorator(login_required)
     def post(self, request):
         form = UserCreationForm(request.POST)
 
