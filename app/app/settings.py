@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-rtrr*93z-fcmr0q^gi!bg-n@tdurvxccpn(-oel*&ew!q-w6nd
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*', 'https://dev-dnd.retailiqa.ru']
+ALLOWED_HOSTS = ['*', '.retailiqa.ru']
 
 CSRF_COOKIE_DOMAIN = '.retailiqa.ru'
 
